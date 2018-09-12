@@ -66,7 +66,7 @@ def make_chains(text_string,n):
     words = text_string.split()
 
     for i in range(len(words) - n):
-        key = tuple(words[i: n ])
+        key = tuple(words[i: i+ n ])
         # print(key)
         value = words[i + n]
         # print(value)
