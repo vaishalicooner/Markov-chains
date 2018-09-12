@@ -81,14 +81,14 @@ def make_chains(text_string,n):
 
 
 
-def make_text(chains):
+def make_text(chains,n):
     """Return text from chains."""
 
     words = []
     key = choice(list(chains.keys()))
     
-    words.append(key[0])
-    words.append(key[1])
+    words.append(key[0:n])
+    # words.append(key[1])
 
     while True:
         new_key = tuple(words[-2:])
@@ -113,6 +113,6 @@ input_text = open_and_read_file(input_path)
 # Get a Markov chain
 chains = make_chains(input_text,4)
 # Produce random text
-random_text = make_text(chains)
+random_text = make_text(chains,4)
 
 print(random_text)
