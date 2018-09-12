@@ -67,16 +67,16 @@ def make_chains(text_string,n):
 
     for i in range(len(words) - n):
         key = tuple(words[i: n ])
-        print(key)
+        # print(key)
         value = words[i + n]
-        print(value)
+        # print(value)
 
         if key not in chains:
             chains[key] = []
-            print(key)
-            print(chains)
+            # print(key)
+            # print(chains)
         chains[key].append(value)
-    print(chains)
+    # print(chains)
     return chains
 
 
@@ -87,8 +87,8 @@ def make_text(chains,n):
     words = []
     key = choice(list(chains.keys()))
     
-    words.append(key[0:n])
-    # words.append(key[1])
+    words.append(key[0])
+    words.append(key[1])
 
     while True:
         new_key = tuple(words[-2:])
@@ -111,8 +111,8 @@ input_path = sys.argv[1]
 input_text = open_and_read_file(input_path)
 
 # Get a Markov chain
-chains = make_chains(input_text,4)
+chains = make_chains(input_text,3)
 # Produce random text
-random_text = make_text(chains,4)
+random_text = make_text(chains,3)
 
 print(random_text)
